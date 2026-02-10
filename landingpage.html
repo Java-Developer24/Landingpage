@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GoDaddy Client Suite Showcase</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;family=Playfair+Display:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "gd-teal": "#00a63f",
+                        "gd-dark": "#111111",
+                        "accent-blue": "#09757a",
+                        "soft-gray": "#f8f9fa",
+                    },
+                    fontFamily: {
+                        "sans": ["Manrope", "sans-serif"],
+                        "serif": ["Playfair Display", "serif"]
+                    },
+                    boxShadow: {
+                        'float': '0 20px 40px -12px rgba(0, 0, 0, 0.08)',
+                        'float-hover': '0 35px 60px -15px rgba(0, 166, 63, 0.15)',
+                    }
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply font-sans bg-white text-slate-800 antialiased overflow-x-hidden;
+            }
+            h1, h2, h3, h4 {
+                @apply font-serif text-gd-dark;
+            }
+        }.blob-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            overflow: hidden;
+            background: white;
+        }
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.6;
+            animation: float-blob 20s infinite ease-in-out;
+        }
+        .blob-1 {
+            background: #dcfce7;width: 600px;
+            height: 600px;
+            top: -10%;
+            left: -10%;
+            animation-delay: 0s;
+        }
+        .blob-2 {
+            background: #e0f2fe;width: 500px;
+            height: 500px;
+            bottom: -10%;
+            right: -10%;
+            animation-delay: -5s;
+        }
+        .blob-3 {
+            background: #f0fdf4;width: 400px;
+            height: 400px;
+            top: 40%;
+            left: 40%;
+            animation-delay: -10s;
+        }
+        @keyframes float-blob {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+        }.floating-card {
+            background: white;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .floating-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 35px 60px -15px rgba(0, 0, 0, 0.1);
+        }.stagger-col:nth-child(2) {
+            margin-top: 4rem;
+        }
+        @media (max-width: 1024px) {
+            .stagger-col:nth-child(2) {
+                margin-top: 0;
+            }
+        }
+    </style>
+</head>
+<body class="relative min-h-screen">
+<div class="blob-bg">
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<div class="blob blob-3"></div>
+</div>
+<header class="fixed top-0 z-50 w-full bg-white/70 backdrop-blur-md border-b border-gray-100">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <img src="/genpactlogo.png" alt="" class="w-35 h-24">
+    <img src="data:image/webp;base64,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" alt="" 
+    class="w-35 h-20">
+</div>
+</header>
+<main class="pt-32 pb-20">
+<section class="max-w-7xl mx-auto px-6 mb-24 text-center relative z-10">
+<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-gray-200 shadow-sm text-gd-dark text-xs font-bold uppercase tracking-[0.15em] mb-8">
+<span class="size-2 rounded-full bg-gd-teal animate-pulse"></span>
+            GoDaddy Executive Visit 2026
+        </div>
+<h1 class="text-6xl md:text-8xl font-black leading-tight tracking-tight mb-8 text-gd-dark">
+    Welcome   <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-gd-teal to-accent-blue">GoDaddy Team</span>
+</h1>
+<p class="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed font-sans font-medium">
+            A curated suite of high-fidelity tools designed to elevate the GoDaddy customer experience through intelligent automation.
+        </p>
+</section>
+<section class="max-w-7xl mx-auto px-6 pb-32">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+<div class="flex flex-col gap-12 stagger-col">
+<div class="floating-card bg-white rounded-[2rem] p-10 shadow-float border border-slate-50 relative group h-full flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-8">
+<div class="size-16 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl">psychology</span>
+</div>
+<span class="px-3 py-1 bg-slate-50 rounded-lg text-[10px] font-bold uppercase tracking-widest text-slate-400">Training</span>
+</div>
+<h3 class="text-3xl font-bold mb-4 group-hover:text-emerald-600 transition-colors">Agentic AI Coach</h3>
+<p class="text-slate-500 text-lg leading-relaxed mb-8">
+    Agentic AI Coach is an  AI-powered training platform that simulates realistic customer conversations, allowing support reps to practice problem-solving while receiving real-time performance evaluations.
+                        </p>
+</div>
+<div class="flex items-center gap-4 pt-8 border-t border-slate-100">
+<a href="#" target="_blank" class="flex-1 py-3 px-6 rounded-xl bg-emerald-600 text-white font-bold text-sm shadow-lg shadow-emerald-200 hover:shadow-emerald-300 transition-all text-center">View Platform</a>
+<button class="size-12 rounded-full border border-slate-200 flex items-center justify-center hover:bg-slate-50 transition-colors text-slate-600">
+<span class="material-symbols-outlined">play_arrow</span>
+</button>
+</div>
+</div>
+<div class="floating-card bg-white rounded-[2rem] p-10 shadow-float border border-slate-50 relative group h-full flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-8">
+<div class="size-16 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl">verified</span>
+</div>
+<span class="px-3 py-1 bg-slate-50 rounded-lg text-[10px] font-bold uppercase tracking-widest text-slate-400">Logic</span>
+</div>
+<h3 class="text-3xl font-bold mb-4 group-hover:text-purple-600 transition-colors">NRPC Bot</h3>
+<p class="text-slate-500 text-lg leading-relaxed mb-8">
+    NRPC Bot is an automated performance analytics and reporting system that evaluates agent and supervisor performance against departmental benchmarks.                        </p>
+</div>
+<div class="flex items-center gap-4 pt-8 border-t border-slate-100">
+<a href="#" target="_blank" class="flex-1 py-3 px-6 rounded-xl bg-purple-600 text-white font-bold text-sm shadow-lg shadow-purple-200 hover:shadow-purple-300 transition-all text-center">View Platform</a>
+<button class="size-12 rounded-full border border-slate-200 flex items-center justify-center hover:bg-slate-50 transition-colors text-slate-600">
+<span class="material-symbols-outlined">play_arrow</span>
+</button>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-12 stagger-col lg:mt-16">
+<div class="floating-card bg-white rounded-[2rem] p-10 shadow-float border border-slate-50 relative group h-full flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-8">
+<div class="size-16 rounded-2xl bg-amber-50 text-amber-500 flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl">workspace_premium</span>
+</div>
+<span class="px-3 py-1 bg-slate-50 rounded-lg text-[10px] font-bold uppercase tracking-widest text-slate-400">Gamification</span>
+</div>
+<h3 class="text-3xl font-bold mb-4 group-hover:text-amber-500 transition-colors">Gamified Performance Dashboard</h3>
+<p class="text-slate-500 text-lg leading-relaxed mb-8">
+    An engaging, gamified performance experience that motivates employees through visibility, progress, and recognition.                        </p>
+</div>
+<div class="flex items-center gap-4 pt-8 border-t border-slate-100">
+<a href="https://lemon-sky-0ea8ed71e.2.azurestaticapps.net" target="_blank" class="flex-1 py-3 px-6 rounded-xl bg-amber-500 text-white font-bold text-sm shadow-lg shadow-amber-200 hover:shadow-amber-300 transition-all text-center">View Platform</a>
+<button class="size-12 rounded-full border border-slate-200 flex items-center justify-center hover:bg-slate-50 transition-colors text-slate-600">
+<span class="material-symbols-outlined">play_arrow</span>
+</button>
+</div>
+</div>
+<div class="floating-card bg-white rounded-[2rem] p-10 shadow-float border border-slate-50 relative group h-full flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-8">
+<div class="size-16 rounded-2xl bg-rose-50 text-rose-500 flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl">person_check</span>
+</div>
+<span class="px-3 py-1 bg-slate-50 rounded-lg text-[10px] font-bold uppercase tracking-widest text-slate-400">HR Tech</span>
+</div>
+<h3 class="text-3xl font-bold mb-4 group-hover:text-rose-500 transition-colors">Attendance Tracker</h3>
+<p class="text-slate-500 text-lg leading-relaxed mb-8">
+    An automated, KPI-driven 1-on-1 scheduler that proactively triggers focused coaching conversations based on performance gaps and trends.                        </p>
+</div>
+<div class="flex items-center gap-4 pt-8 border-t border-slate-100">
+<a href="#" target="_blank" class="flex-1 py-3 px-6 rounded-xl bg-rose-500 text-white font-bold text-sm shadow-lg shadow-rose-200 hover:shadow-rose-300 transition-all text-center">View Platform</a>
+<button class="size-12 rounded-full border border-slate-200 flex items-center justify-center hover:bg-slate-50 transition-colors text-slate-600">
+<span class="material-symbols-outlined">play_arrow</span>
+</button>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-12 stagger-col">
+<div class="floating-card bg-white rounded-[2rem] p-10 shadow-float border border-slate-50 relative group h-full flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-8">
+<div class="size-16 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl">bolt</span>
+</div>
+<span class="px-3 py-1 bg-slate-50 rounded-lg text-[10px] font-bold uppercase tracking-widest text-slate-400">Automation</span>
+</div>
+<h3 class="text-3xl font-bold mb-4 group-hover:text-blue-600 transition-colors">AHT Bot</h3>
+<p class="text-slate-500 text-lg leading-relaxed mb-8">
+    AHT Bot is a performance analytics system that tracks agent Average Handle Time and other key metrics, then automatically emails agents their performance data and personalized insights.
+                        </p>
+</div>
+<div class="flex items-center gap-4 pt-8 border-t border-slate-100">
+<a href="#" target="_blank" class="flex-1 py-3 px-6 rounded-xl bg-blue-600 text-white font-bold text-sm shadow-lg shadow-blue-200 hover:shadow-blue-300 transition-all text-center">View Platform</a>
+<button class="size-12 rounded-full border border-slate-200 flex items-center justify-center hover:bg-slate-50 transition-colors text-slate-600">
+<span class="material-symbols-outlined">play_arrow</span>
+</button>
+</div>
+</div>
+<div class="floating-card bg-white rounded-[2rem] p-10 shadow-float border border-slate-50 relative group h-full flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-8">
+<div class="size-16 rounded-2xl bg-orange-50 text-orange-500 flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl">event_available</span>
+</div>
+<span class="px-3 py-1 bg-slate-50 rounded-lg text-[10px] font-bold uppercase tracking-widest text-slate-400">WFM</span>
+</div>
+<h3 class="text-3xl font-bold mb-4 group-hover:text-orange-500 transition-colors">Scheduler AI</h3>
+<p class="text-slate-500 text-lg leading-relaxed mb-8">
+    Scheduler AI is an automated bot that schedules calls for agents on behalf of supervisors and sends agents email notifications containing their call schedules along with agent-specific performance metrics.
+                        </p>
+</div>
+<div class="flex items-center gap-4 pt-8 border-t border-slate-100">
+<a href="#" target="_blank" class="flex-1 py-3 px-6 rounded-xl bg-orange-500 text-white font-bold text-sm shadow-lg shadow-orange-200 hover:shadow-orange-300 transition-all text-center">View Platform</a>
+<button class="size-12 rounded-full border border-slate-200 flex items-center justify-center hover:bg-slate-50 transition-colors text-slate-600">
+<span class="material-symbols-outlined">play_arrow</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+
+</body></html>
